@@ -14,14 +14,14 @@ jobs:
 
       - name: Add Issue to GitHub Project
         run: |
-          gh api graphql -f query='
+          ITEM_ID=$(gh api graphql -f query='
           mutation {
             addProjectV2ItemById(input: {projectId: "PVT_kwDOBcdefc4AtG9a", contentId: "'$ISSUE_ID'"}) {
               item {
                 id
               }
             }
-          }' --jq '.data.addProjectV2ItemById.item.id'
+          }' --jq '.data.addProjectV2ItemById.item.id')
           echo "ITEM_ID=$ITEM_ID" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
