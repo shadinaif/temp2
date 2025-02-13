@@ -1,7 +1,7 @@
 ---
 name: Bug
 about: report a bug
-title: bug\: change me please
+title: "bug: set me please"
 ---
 
 **Description:**
