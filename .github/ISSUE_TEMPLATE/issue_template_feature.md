@@ -1,6 +1,7 @@
 ---
 name: Feature
 about: request a new feature or a change on an existing feature
+title: "feat: set me please"
 ---
 
 **Description:**
