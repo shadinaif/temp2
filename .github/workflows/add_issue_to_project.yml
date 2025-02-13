@@ -22,6 +22,7 @@ jobs:
               }
             }
           }' --jq '.data.addProjectV2ItemById.item.id'
+          echo "ITEM_ID=$ITEM_ID" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
 
@@ -32,7 +33,7 @@ jobs:
             updateProjectV2ItemFieldValue(input: { 
               projectId: "PVT_kwDOBcdefc4AtG9a", 
               itemId: "'$ITEM_ID'", 
-              fieldId: "STATUS_FIELD_ID",
+              fieldId: "PVTSSF_lADOBcdefc4AtG9azgj7GyY",
               value: { singleSelectOptionId: "f75ad846" }
             }) {
               projectV2Item {
