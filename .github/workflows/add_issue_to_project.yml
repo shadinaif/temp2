@@ -26,6 +26,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
 
+      - name: Wait for GitHub API to process the item
+        run: sleep 5
+
       - name: Update Issue Status to "Newly Added"
         run: |
           gh api graphql -f query='
