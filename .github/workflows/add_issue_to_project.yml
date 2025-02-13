@@ -30,7 +30,7 @@ jobs:
           gh api graphql -f query='
           mutation {
             updateProjectV2ItemFieldValue(input: { 
-              projectId: "PROJECT_ID", 
+              projectId: "PVT_kwDOBcdefc4AtG9a", 
               itemId: "'$ITEM_ID'", 
               fieldId: "STATUS_FIELD_ID",
               value: { singleSelectOptionId: "f75ad846" }
