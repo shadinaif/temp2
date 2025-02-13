@@ -1,0 +1,26 @@
+name: Add New Issue to GitHub Project
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Issue ID
+        id: get_issue_id
+        run: echo "ISSUE_ID=${{ github.event.issue.node_id }}" >> $GITHUB_ENV
+
+      - name: Add Issue to GitHub Project
+        run: |
+          gh api graphql -f query='
+          mutation {
+            addProjectV2ItemById(input: {projectId: "PVT_kwDOBcdefc4AtG9a", contentId: "'$ISSUE_ID'"}) {
+              item {
+                id
+              }
+            }
+          }' --jq '.data.addProjectV2ItemById.item.id'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
