@@ -24,3 +24,21 @@ jobs:
           }' --jq '.data.addProjectV2ItemById.item.id'
         env:
           GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
+
+      - name: Update Issue Status to "Newly Added"
+        run: |
+          gh api graphql -f query='
+          mutation {
+            updateProjectV2ItemFieldValue(input: { 
+              projectId: "PROJECT_ID", 
+              itemId: "'$ITEM_ID'", 
+              fieldId: "STATUS_FIELD_ID",
+              value: { singleSelectOptionId: "f75ad846" }
+            }) {
+              projectV2Item {
+                id
+              }
+            }
+          }'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT_FOR_PROJECTS }}
