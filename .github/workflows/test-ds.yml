@@ -11,5 +11,5 @@ jobs:
         run: |
           echo "Checking folder sizes..."
           df -H
-          sudo rm -f /usr/local/lib/android || true
+          sudo rm -f -R /usr/local/lib/android || true
           df -H
