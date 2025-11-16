@@ -11,6 +11,5 @@ jobs:
         run: |
           echo "Checking folder sizes..."
           df -H
-          du -sh /usr/share/dotnet || true
-          du -sh /usr/local/lib/android || true
+          sudo rm -f /usr/local/lib/android || true
           df -H
