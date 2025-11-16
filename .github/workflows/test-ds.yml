@@ -10,6 +10,7 @@ jobs:
       - name: Print sizes
         run: |
           echo "Checking folder sizes..."
+          df -H
           du -sh /usr/share/dotnet || true
           du -sh /usr/local/lib/android || true
-          du -sh /opt/ghc || true
+          df -H
