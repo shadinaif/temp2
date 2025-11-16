@@ -1,0 +1,15 @@
+name: Print Folder Sizes
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-sizes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print sizes
+        run: |
+          echo "Checking folder sizes..."
+          du -sh /usr/share/dotnet || true
+          du -sh /usr/local/lib/android || true
+          du -sh /opt/ghc || true
